@@ -55,10 +55,6 @@ public class Win32API
 # Simple function for setting a window's dimensions by handle and parameters.
 function Move-Window([System.IntPtr]$WindowHandle, [switch]$Top, [switch]$Bottom, [switch]$Left, [switch]$Right)
 {
-    # Determine and store the requested window's dimensions.
-    $windowRectangle = New-Object RECT;
-    [Win32API]::GetWindowRect($WindowHandle, [ref]$windowRectangle);
-
     # Use the system working area as the screen dimensions.
     $workingArea = [System.Windows.Forms.SystemInformation]::WorkingArea;
     
